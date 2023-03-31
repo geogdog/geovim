@@ -4,6 +4,8 @@ My setup for LazyVim.
 
 ## Installation
 
+<!-- TODO: Add homebrew packages required for plugin installs -->
+
 ```
 # required
 mv ~/.config/nvim ~/.config/nvim.bak
