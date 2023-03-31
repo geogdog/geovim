@@ -4,7 +4,12 @@ My setup for LazyVim.
 
 ## Installation
 
-<!-- TODO: Add homebrew packages required for plugin installs -->
+Install the dependencies:
+```
+brew install lazygit lua luajit neovim
+```
+
+Move your current configuration to one side:
 
 ```
 # required
