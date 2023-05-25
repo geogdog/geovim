@@ -20,3 +20,6 @@ map("x", "ga", "<Plug>(EasyAlign)", { desc = "EasyAlign" })
 -- map("n", "<leader>tp", function()
 --   Util.float_term({ "terragrunt", "plan" }, { nowait = false })
 -- end, { desc = "Terminal (cwd)" })
+
+-- NeoTree Focus
+map("n", "<leader>fg", "<cmd>Neotree focus<cr>", { desc = "Focus NeoTree" })
