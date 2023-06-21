@@ -1,0 +1,7 @@
+{
+  "strict": {
+    "prefix": "strict",
+    "body": "set -uo pipefail\nIFS=$'\\n\\t'\n",
+    "description": "Use Bash Strict Mode"
+  }
+}
