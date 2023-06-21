@@ -1,11 +1,25 @@
 TAG = $(shell git describe --abbrev=0 --tags)
 
+start_builders:
+	docker buildx create --platform linux/arm64,linux/amd64 --use --bootstrap
+
+tag:
+	@echo $(TAG)
+
 build:
-	docker buildx build --pull --no-cache --platform linux/arm64 -t monkeyswithbuttons/geovim:latest \
-		-t monkeyswithbuttons/geovim:$(TAG) ${PWD} --push
+	docker buildx build --pull --no-cache --platform linux/arm64,linux/amd64 \
+		-t monkeyswithbuttons/geovim:latest \
+		-t monkeyswithbuttons/geovim:$(TAG) \
+		$(PWD)
 
-shell: build
-	docker run --rm -ti monkeyswithbuttons/geovim bash
+build-and-push:
+	docker buildx build --pull --no-cache --platform linux/arm64,linux/amd64 \
+		-t monkeyswithbuttons/geovim:latest \
+		-t monkeyswithbuttons/geovim:$(TAG) \
+		$(PWD)
 
-run: build
-	docker run --rm -ti monkeyswithbuttons/geovim
+shell:
+	docker run --pull always --rm -ti monkeyswithbuttons/geovim:latest bash
+
+run:
+	docker run --pull always --rm -ti monkeyswithbuttons/geovim:latest
