@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: |
+        docker buildx build --pull --no-cache \
+          --platform linux/arm64,linux/amd64,
+          --file tests/Dockerfile \
+          --tag monkeyswithbuttons/geovim:$(date +%s) \
+          --tag monkeyswithbuttons/geovim:latest
