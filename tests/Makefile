@@ -7,16 +7,17 @@ tag:
 	@echo $(TAG)
 
 build:
-	docker buildx build --pull --no-cache --platform linux/arm64 \
+	docker buildx build --pull --no-cache --platform linux/arm64,linux/amd64 \
 		-t monkeyswithbuttons/geovim:main \
 		-t monkeyswithbuttons/geovim:$(TAG) \
 		$(PWD)
 
 build-and-push:
-	docker buildx build --pull --no-cache --platform linux/arm64 \
+	docker buildx build --pull --no-cache --platform linux/arm64,linux/amd64 \
 		-t monkeyswithbuttons/geovim:main \
 		-t monkeyswithbuttons/geovim:$(TAG) \
-		$(PWD)
+		$(PWD) \
+		--push
 
 shell:
 	docker run --pull always --rm -ti monkeyswithbuttons/geovim:main bash
