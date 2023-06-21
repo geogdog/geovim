@@ -16,6 +16,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: |
+	      docker buildx create --platform linux/arm64,linux/amd64 --use --bootstrap
         docker buildx build --pull --no-cache \
           --platform linux/arm64,linux/amd64 \
           --tag monkeyswithbuttons/geovim:$(date +%s) \
