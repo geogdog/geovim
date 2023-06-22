@@ -27,7 +27,10 @@ build-and-push:
 		--push
 
 shell:
-	docker run --pull always --rm -ti monkeyswithbuttons/geovim:latest bash
+	docker run --pull always --rm -ti monkeyswithbuttons/geovim:latest zsh
 
 run:
-	docker run --rm -ti monkeyswithbuttons/geovim:latest
+	docker run --pull always --rm -ti monkeyswithbuttons/geovim:latest
+
+test-run: test-build
+	docker run --pull always --rm -ti monkeyswithbuttons/geovim:latest
