@@ -6,13 +6,7 @@ on:
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
-permissions:
-  contents: read
-  deployments: read
-  id-token: read
-  pull-requests: read
-  repository-projects: read
-  statuses: read
+permissions: read-all
 
 env:
   REGISTRY_IMAGE: geogdog/geovim
