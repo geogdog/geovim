@@ -35,4 +35,6 @@ USER geovim
 RUN git clone https://github.com/geogdog/geovim ~/.config/nvim \
     && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+HEALTHCHECK NONE
+
 CMD /start.sh

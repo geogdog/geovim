@@ -36,4 +36,4 @@ test-run: test-build
 	docker run --pull always --rm -ti monkeyswithbuttons/geovim:latest
 
 lint:
-	@checkov --quiet --compact -d $(PWD)
+	@checkov --quiet --compact --framework dockerfile -d $(PWD)
