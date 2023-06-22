@@ -21,13 +21,18 @@ ENV PATH /opt/neovim/bin:${PATH}
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y curl ca-certificates \
-    git make gcc g++ libc-dev libluajit-5.1-dev ripgrep fd-find \
-    && update-ca-certificates
+    git make gcc g++ libc-dev libluajit-5.1-dev ripgrep fd-find zsh \
+    && update-ca-certificates && useradd -ms /bin/zsh geovim
 
 COPY --from=builder /opt/neovim /opt/neovim
 
-WORKDIR /root
+COPY --chmod=0755 start.sh /start.sh
 
-RUN git clone https://github.com/geogdog/geovim ~/.config/nvim
+WORKDIR /home/geovim
 
-CMD nvim
+USER geovim
+
+RUN git clone https://github.com/geogdog/geovim ~/.config/nvim \
+    && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+CMD /start.sh
