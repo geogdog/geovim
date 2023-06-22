@@ -29,3 +29,36 @@ And start neovim:
 ```
 nvim
 ```
+
+## Docker
+
+I also provide a docker container build for amd64 or arm64:
+
+```
+docker run -ti monkeyswithbuttons/geovim:latest
+```
+
+## Additional Plugins
+
+| Name                         | Description        | Key/Command     |
+|------------------------------|--------------------|-----------------|
+| `junegunn/vim-easy-align`      | EasyAlign          | `EasyAlign`       |
+| `iamcco/markdown-preview.nvim` | Preview Markdown   | `MarkdownPreview` |
+| `ahmedkhalf/project.nvim`      | Telescope Projects | `<leader>fp`      |
+
+
+## Additional Keymappings
+
+### neo-tree.vim
+
+| Key        | Description   | Mode |
+|------------|---------------|------|
+| `<leader>fg` | NeoTree focus | n    |
+
+## Additional Snippets
+
+### shell
+
+| Name   | Description      |
+|--------|------------------|
+| `strict` | Bash Strict Mode |
