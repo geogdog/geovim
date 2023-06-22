@@ -3,4 +3,5 @@
 -- Add any additional options here
 local opt = vim.opt
 
+opt.shell = "/bin/zsh" -- Set the shell for integrated terminal
 -- opt.mouse = "" -- Disable mouse mode
