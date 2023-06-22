@@ -6,21 +6,28 @@ start_builders:
 tag:
 	@echo $(TAG)
 
+test-build:
+	docker buildx build --platform linux/arm64 \
+		-t monkeyswithbuttons/geovim:latest \
+		-t monkeyswithbuttons/geovim:$(TAG) \
+		$(PWD) \
+		--load
+
 build:
 	docker buildx build --pull --no-cache --platform linux/arm64,linux/amd64 \
-		-t monkeyswithbuttons/geovim:main \
+		-t monkeyswithbuttons/geovim:latest \
 		-t monkeyswithbuttons/geovim:$(TAG) \
 		$(PWD)
 
 build-and-push:
 	docker buildx build --pull --no-cache --platform linux/arm64,linux/amd64 \
-		-t monkeyswithbuttons/geovim:main \
+		-t monkeyswithbuttons/geovim:latest \
 		-t monkeyswithbuttons/geovim:$(TAG) \
 		$(PWD) \
 		--push
 
 shell:
-	docker run --pull always --rm -ti monkeyswithbuttons/geovim:main bash
+	docker run --pull always --rm -ti monkeyswithbuttons/geovim:latest bash
 
 run:
-	docker run --pull always --rm -ti monkeyswithbuttons/geovim:main
+	docker run --rm -ti monkeyswithbuttons/geovim:latest
