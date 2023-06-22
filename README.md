@@ -1,3 +1,5 @@
+[![Create Container Image](https://github.com/geogdog/geovim/actions/workflows/docker-image.yml/badge.svg)](https://github.com/geogdog/geovim/actions/workflows/docker-image.yml)
+
 # GeoVim
 
 My setup for LazyVim.
