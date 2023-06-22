@@ -1,4 +1,4 @@
-name: Create Container Image
+name: Checkov Checks
 
 on:
   push:
