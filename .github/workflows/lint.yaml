@@ -1,4 +1,4 @@
-name: Create Container Image
+name: Checkov Checks
 
 on:
   push:
@@ -16,12 +16,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        platform:
-          - linux/amd64
-          - linux/arm64
     steps:
       - name: Checkout
         uses: actions/checkout@v3
