@@ -40,6 +40,28 @@ I also provide a docker container build for amd64 or arm64:
 docker run -ti geogdog/geovim:latest
 ```
 
+### Corporate Proxy
+
+If, like me, you work behind a corporate proxy with a CA, then you can build your own container
+and inject your Root and Issuing CAs:
+
+Get the CA certs and place them in a `ca` directory. The create this Dockerfile:
+
+```Dockerfile
+FROM geogdog/geovim:latest
+USER root
+COPY ca/*.crt /usr/local/share/ca-certificates
+RUN update-ca-certificates
+USER geovim
+```
+
+Now you can build and run it:
+```
+docker build -t geovim .
+docker run --ti --rm geovim
+```
+
+
 ## Additional Plugins
 
 | Name                         | Description        | Key/Command     |
@@ -64,3 +86,4 @@ docker run -ti geogdog/geovim:latest
 | Name   | Description      |
 |--------|------------------|
 | `strict` | Bash Strict Mode |
+
