@@ -37,7 +37,7 @@ nvim
 I also provide a docker container build for amd64 or arm64:
 
 ```
-docker run -ti monkeyswithbuttons/geovim:latest
+docker run -ti geogdog/geovim:latest
 ```
 
 ## Additional Plugins
