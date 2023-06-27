@@ -33,7 +33,7 @@ run:
 	docker run --pull always --rm -ti monkeyswithbuttons/geovim:latest
 
 test-run: test-build
-	docker run --pull always --rm -ti monkeyswithbuttons/geovim:latest
+	docker run --pull missing --rm -ti monkeyswithbuttons/geovim:latest https://github.com/geogdog/geovim
 
 lint:
 	@checkov --quiet --compact --framework dockerfile -d $(PWD)
