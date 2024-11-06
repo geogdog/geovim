@@ -1,0 +1,9 @@
+{
+  "Bash Strict Mode": {
+    "prefix": [
+      "strict",
+      "bsm"
+    ],
+    "body": "set -uo pipefail\nIFS=\\$'\\n\\t'"
+  }
+}

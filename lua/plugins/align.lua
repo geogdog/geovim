@@ -1,6 +1,7 @@
-return {
-  {
-    "junegunn/vim-easy-align",
-    event = "BufRead",
-  },
-}
+return {}
+-- return {
+--   {
+--     "junegunn/vim-easy-align",
+--     event = "BufRead",
+--   },
+-- }
